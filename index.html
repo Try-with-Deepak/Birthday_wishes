@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        /* Video Styling */
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* This makes the video fill the screen */
+            z-index: -2; /* Keeps video behind everything */
+        }
+
+        /* Dark overlay to make text readable */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4); /* 40% black overlay */
+            z-index: -1;
+        }
+
+        .container {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9); /* Slight white glass effect */
+            border-radius: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            z-index: 1;
+        }
+
+        img {
+            max-width: 250px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        h1 { color: #d81b60; margin-bottom: 20px; font-size: clamp(1.5rem, 5vw, 3rem); }
+
+        .button-wrapper {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            height: 60px;
+        }
+
+        button {
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            border: none;
+            border-radius: 50px;
+            font-weight: bold;
+        }
+
+        #yesBtn {
+            background-color: #4caf50;
+            color: white;
+            transition: transform 0.2s;
+            border: 1px solid #2e7d32;
+            padding: 10px 40px;
+        }
+
+        #noBtn {
+            background-color: #f44336;
+            color: white;
+            position: absolute; 
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            white-space: nowrap;
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop playsinline class="bg-video">
+        <source src="birth.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    
+    <div class="overlay"></div>
+
+    <div class="container">
+        <img src="https://images.unsplash.com/photo-1513151233558-d860c5398176?w=500&q=80" alt="Birthday Celebration">
+        <h1>Happy Birthday! 🎂</h1>
+        <p>Will you accept my wishes?</p>
+        
+        <div class="button-wrapper">
+            <button id="yesBtn" onclick="acceptWish()">Thankyou</button>
+            <button id="noBtn">Nhi Bolunge</button>
+        </div>
+    </div>
+
+    <script>
+        const noBtn = document.getElementById('noBtn');
+
+        function moveButton() {
+            const windowWidth = window.innerWidth;
+            const windowHeight = window.innerHeight;
+            const btnWidth = noBtn.offsetWidth;
+            const btnHeight = noBtn.offsetHeight;
+
+            const randomX = Math.random() * (windowWidth - btnWidth - 40) + 20;
+            const randomY = Math.random() * (windowHeight - btnHeight - 40) + 20;
+
+            noBtn.style.left = `${randomX}px`;
+            noBtn.style.top = `${randomY}px`;
+        }
+
+        noBtn.addEventListener('mouseover', moveButton);
+        noBtn.addEventListener('touchstart', (e) => {
+            e.preventDefault();
+            moveButton();
+        });
+
+        function acceptWish() {
+            alert("Yay! Thank you! Have the best day ever! 🎉");
+        }
+    </script>
+</body>
+</html>
