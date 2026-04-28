@@ -1,11 +1,16 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy Birthday!</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
         body {
             display: flex;
@@ -43,25 +48,45 @@
             padding: 20px;
             background: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
             z-index: 1;
+            background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+            background-size: 400% 400%;
+            animation: gradient 5s ease infinite;
+            overflow: hidden;
+         
+        }
+
+        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
         }
 
         /* Styling for the video inside the container */
         .card-video {
-            max-width: 250px;
             width: 100%;
+            /* Forces the video to fill the width of the container */
+            height: 140px;
+            /* You can change this to make the video box taller or shorter */
+            aspect-ratio: 9 / 16;
+            /* This keeps it in a nice portrait shape (like a phone screen) */
+            object-fit: cover;
+            /* This ensures the video fills the box without distortion */
             border-radius: 20px;
             margin-bottom: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-            object-fit: cover;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             display: block;
             margin-left: auto;
             margin-right: auto;
-            
+            box-shadow: 1px 5px 10px red;
         }
 
-        h1 { color: #d81b60; margin-bottom: 20px; font-size: clamp(1.5rem, 5vw, 3rem); }
+        h1 {
+            color: #d81b60;
+            margin-bottom: 20px;
+            font-size: clamp(1.5rem, 5vw, 3rem);
+        }
 
         .button-wrapper {
             display: flex;
@@ -91,19 +116,20 @@
         #noBtn {
             background-color: #f44336;
             color: white;
-            position: absolute; 
+            position: absolute;
             transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             white-space: nowrap;
         }
     </style>
 </head>
+
 <body>
 
     <video autoplay muted loop playsinline class="bg-video">
         <source src="birth.mp4" type="video/mp4">
         Your browser does not support the video tag.
     </video>
-    
+
     <div class="overlay"></div>
 
     <div class="container">
@@ -112,9 +138,9 @@
             Your browser does not support the video tag.
         </video>
 
-        <h1>Happy Birthday! 🎂</h1>
+        <h1 style="font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; color:#d68f15;">Happy Birthday! 🍥</h1>
         <p>Will you accept my wishes?</p>
-        
+
         <div class="button-wrapper">
             <button id="yesBtn" onclick="acceptWish()">Thankyou</button>
             <button id="noBtn">Nhi Bolunge</button>
@@ -148,4 +174,5 @@
         }
     </script>
 </body>
+
 </html>
