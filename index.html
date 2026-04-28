@@ -106,7 +106,7 @@
         }
 
         #yesBtn {
-            background-color: #4caf50;
+            background-color: #12b398;
             color: white;
             transition: transform 0.2s;
             border: 1px solid #2e7d32;
@@ -147,32 +147,41 @@
         </div>
     </div>
 
-    <script>
-        const noBtn = document.getElementById('noBtn');
+   <script>
+    const noBtn = document.getElementById('noBtn');
 
-        function moveButton() {
-            const windowWidth = window.innerWidth;
-            const windowHeight = window.innerHeight;
-            const btnWidth = noBtn.offsetWidth;
-            const btnHeight = noBtn.offsetHeight;
+    function moveButton() {
+        const windowWidth = window.innerWidth;
+        const windowHeight = window.innerHeight;
+        const btnWidth = noBtn.offsetWidth;
+        const btnHeight = noBtn.offsetHeight;
 
-            const randomX = Math.random() * (windowWidth - btnWidth - 40) + 20;
-            const randomY = Math.random() * (windowHeight - btnHeight - 40) + 20;
+        const randomX = Math.random() * (windowWidth - btnWidth - 40) + 20;
+        const randomY = Math.random() * (windowHeight - btnHeight - 40) + 20;
 
-            noBtn.style.left = `${randomX}px`;
-            noBtn.style.top = `${randomY}px`;
-        }
+        noBtn.style.left = `${randomX}px`;
+        noBtn.style.top = `${randomY}px`;
+    }
 
-        noBtn.addEventListener('mouseover', moveButton);
-        noBtn.addEventListener('touchstart', (e) => {
-            e.preventDefault();
-            moveButton();
-        });
+    noBtn.addEventListener('mouseover', moveButton);
+    noBtn.addEventListener('touchstart', (e) => {
+        e.preventDefault();
+        moveButton();
+    });
 
-        function acceptWish() {
-            alert("Yay! Thank you! Have the best day ever! 🎉");
-        }
-    </script>
+    function acceptWish() {
+        alert(`Wishing you the happiest birthday AryaSree (Kooliyil) ever! 🎉
+No matter how far apart we are, distance is just a number when it comes to someone as special as you.
+
+I hope your day is filled with laughter, joy, and everything that makes you smile. Even though I’m not there 🥲, I’m celebrating you from here and thinking of you.
+
+May you keep achieving success and moving forward in life. ✨
+
+Enjoy every moment and make your day truly special ! 💫
+Once Again wish Uh Happiest Birthday !💞...
+`);
+    }
+</script>
 </body>
 
 </html>
